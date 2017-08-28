@@ -15,7 +15,6 @@ class Api::V1::HomeController < ApplicationController
   private
   def verify_access_token
     authenticate_or_request_with_http_token do |token, options|
-      binding.pry
       ApiKey.where(access_token: token).present?
     end
   end
