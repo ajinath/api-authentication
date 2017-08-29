@@ -37,7 +37,10 @@ review = 1000.times { create_authors }
   5.times { create_reviews(book) }
   book.authors << Author.all.to_a.sample
 end 
-
+puts "Creating index for Author"
+Author.update_ngram_index
+puts "Creating index for Book"
+Book.update_ngram_index
 puts "Script completed."
 puts "-"*30
 puts "Authors Count = #{Author.count}"

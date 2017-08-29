@@ -1,6 +1,6 @@
 class Book
   include Mongoid::Document
-  include Mongoid::Search
+  include Mongoid::FullTextSearch
 
   #field
   field :name, type: String
@@ -14,8 +14,9 @@ class Book
   embeds_many :reviews
   has_and_belongs_to_many :authors
 
-  search_in :name, :short_desc, :long_desc
-  
   GENRE = ['science', 'fiction', 'satire', 'drama', 'action and adventure',
   'romance', 'mystery', 'horror', 'self help', 'Fantasy']
+  
+  fulltext_search_in :name, genre: GENRE
+  
 end

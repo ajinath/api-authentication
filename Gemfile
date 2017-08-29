@@ -8,7 +8,7 @@ gem 'listen', :group => :development
 gem 'mongoid', '6.1.1'
 gem 'faker'
 gem "pry"
-gem 'mongoid_search'
+gem 'mongoid_fulltext'
 
 
 
