@@ -37,6 +37,7 @@ review = 1000.times { create_authors }
   5.times { create_reviews(book) }
   book.authors << Author.all.to_a.sample
 end 
+
 puts "Creating index for Author"
 Author.update_ngram_index
 puts "Creating index for Book"
@@ -47,3 +48,7 @@ puts "Authors Count = #{Author.count}"
 puts "Books Count = #{Book.count}"
 puts "Reviews Count = #{Review.count}"
 puts "-"*30
+
+puts "creating API key"
+apikey = ApiKey.create!
+puts "use #{apikey.access_token} to access API"

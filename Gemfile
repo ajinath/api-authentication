@@ -1,17 +1,12 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.5'
-
 gem 'spring', :group => :development
 gem 'listen', :group => :development
 gem 'mongoid', '6.1.1'
 gem 'faker'
 gem "pry"
 gem 'mongoid_fulltext'
-
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

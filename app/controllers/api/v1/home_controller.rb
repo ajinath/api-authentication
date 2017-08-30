@@ -5,10 +5,9 @@ class Api::V1::HomeController < ApplicationController
   
   def search
     if params[:search_string]
-      @result = Book.where(name: /#{params[:search_string]}/i)
-      @result = Author.where(name: /#{params[:search_string]}/i) if @result.count == 0
+      @result = Book.fulltext_search params[:search_string]
+      @result = Author.fulltext_search params[:search_string] if @result.empty?
     end
-    @result = Book.first
     render json: @result
   end
 
